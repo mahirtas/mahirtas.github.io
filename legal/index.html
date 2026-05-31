@@ -425,20 +425,23 @@
                 <img src="/apple-touch-icon.png" alt="" class="brand-icon">
                 <span>PantryFusion</span>
             </a>
-            <p>Die smarte Rezept-App für alle, die mit Freude und ohne Verschwendung kochen wollen.</p>
+            <p lang="de">Die smarte Rezept-App für alle, die mit Freude und ohne Verschwendung kochen wollen.</p>
+            <p lang="en">The smart recipe app for anyone who wants to cook with joy and without waste.</p>
         </div>
         <div>
-            <h4>App</h4>
+            <h4 lang="de">App</h4>
+            <h4 lang="en">App</h4>
             <a href="https://apps.apple.com/app/pantryfusion/id6761635772">App Store</a>
             <a href="https://play.google.com/store/apps/details?id=com.mahirtas.pantryfusion">Google Play</a>
-            <a href="/">Startseite</a>
+            <a href="/" data-i18n="nav-home">Startseite</a>
         </div>
         <div>
-            <h4>Rechtliches</h4>
-            <a href="./">Datenschutz</a>
-            <a href="support.html">Support</a>
-            <a href="delete-data.html">Daten löschen</a>
-            <a href="mailto:mahir.tas.mt@gmail.com">Kontakt</a>
+            <h4 lang="de">Rechtliches</h4>
+            <h4 lang="en">Legal</h4>
+            <a href="./" data-i18n="nav-privacy">Datenschutz</a>
+            <a href="support.html" data-i18n="nav-support">Support</a>
+            <a href="delete-data.html" data-i18n="nav-delete">Daten löschen</a>
+            <a href="mailto:mahir.tas.mt@gmail.com" data-i18n="nav-contact">Kontakt</a>
         </div>
     </div>
     <div class="footer-bottom">
@@ -449,7 +452,13 @@
 <script>
 (function() {
     var KEY = 'pf-lang';
-    var DEFAULTS = { 'nav-home': { de: 'Startseite', en: 'Home' }, 'nav-support': { de: 'Support', en: 'Support' } };
+    var DEFAULTS = {
+        'nav-home':    { de: 'Startseite',    en: 'Home' },
+        'nav-privacy': { de: 'Datenschutz',   en: 'Privacy' },
+        'nav-support': { de: 'Support',       en: 'Support' },
+        'nav-delete':  { de: 'Daten löschen', en: 'Delete data' },
+        'nav-contact': { de: 'Kontakt',       en: 'Contact' }
+    };
     var stored = (function(){ try { return localStorage.getItem(KEY); } catch(e) { return null; } })();
     var browser = (navigator.language || 'en').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
     setLang(stored || browser);
