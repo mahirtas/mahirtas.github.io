@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PantryFusion Datenschutzerklärung — wie wir mit deinen Daten umgehen.">
+    <meta name="theme-color" content="#FF6B6B">
+    <title>Datenschutz · PantryFusion</title>
+
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --tertiary: #FFE66D;
+            --dark: #1E1E2E;
+            --light: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F4F4F5;
+            --gray-200: #E4E4E7;
+            --gray-500: #71717A;
+            --gray-700: #3F3F46;
+            --gradient-soft: linear-gradient(180deg, #FFF6F6 0%, #FFFFFF 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        [hidden] { display: none !important; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            color: var(--dark);
+            line-height: 1.65;
+            background: var(--light);
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Header */
+        header {
+            position: sticky; top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .header-inner {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 1.5rem; max-width: 1100px; margin: 0 auto;
+        }
+
+        .brand {
+            display: flex; align-items: center; gap: 0.6rem;
+            font-weight: 700; font-size: 1.15rem;
+            color: var(--dark); text-decoration: none;
+        }
+
+        .brand-icon { font-size: 1.6rem; line-height: 1; }
+
+        nav ul { list-style: none; display: flex; gap: 1.5rem; }
+
+        nav a {
+            color: var(--gray-700); text-decoration: none;
+            font-size: 0.95rem; font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        @media (max-width: 640px) { nav { display: none; } }
+
+        /* Lang Toggle */
+        .header-right {
+            display: flex; align-items: center; gap: 1.2rem;
+        }
+
+        .lang-toggle {
+            display: inline-flex;
+            background: var(--gray-100);
+            border-radius: 999px;
+            padding: 3px;
+        }
+
+        .lang-toggle button {
+            border: none; background: transparent;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            font-weight: 600; font-size: 0.85rem;
+            color: var(--gray-500);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .lang-toggle button.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        }
+
+        .lang-toggle button:hover:not(.active) {
+            color: var(--gray-700);
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--gradient-soft);
+            padding: 4rem 0 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255, 230, 109, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content { position: relative; z-index: 1; }
+
+        .hero-emoji { font-size: 3.5rem; margin-bottom: 1rem; }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .hero p {
+            color: var(--gray-500);
+            font-size: 1.05rem;
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            display: flex; gap: 0.5rem; justify-content: center;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .lang-pill {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: white;
+            border: 1.5px solid var(--gray-200);
+            border-radius: 999px;
+            padding: 0.55rem 1.2rem;
+            font-size: 0.95rem; font-weight: 600;
+            color: var(--gray-700);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .lang-pill:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        /* Content */
+        .content { padding: 1rem 0 4rem; }
+
+        .meta-line {
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .meta-line strong { color: var(--gray-700); }
+
+        section.legal { margin-bottom: 3.5rem; }
+
+        section.legal h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        section.legal h2.first { margin-top: 0; }
+
+        section.legal p,
+        section.legal ul {
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        section.legal ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        section.legal ul li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        section.legal ul li:last-child { border-bottom: none; }
+
+        section.legal ul li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0.3rem;
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        section.legal a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1.5px;
+        }
+
+        section.legal a:hover { color: var(--dark); }
+
+        .divider {
+            border: none;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gray-200), transparent);
+            margin: 4rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1100px;
+            margin-left: auto; margin-right: auto;
+            padding: 0 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
+
+        footer h4 {
+            color: white; font-size: 1rem;
+            margin-bottom: 1rem; font-weight: 600;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none; display: block;
+            padding: 0.3rem 0; font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        footer a:hover { color: var(--primary); }
+
+        .footer-brand p {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 320px;
+        }
+
+        .footer-brand .brand { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="/" class="brand">
+            <span class="brand-icon">🍳</span>
+            <span>PantryFusion</span>
+        </a>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="/" data-i18n="nav-home">Startseite</a></li>
+                    <li><a href="support.html" data-i18n="nav-support">Support</a></li>
+                    <li><a href="https://apps.apple.com/app/pantryfusion/id6761635772">App Store</a></li>
+                </ul>
+            </nav>
+            <div class="lang-toggle" role="group" aria-label="Language">
+                <button type="button" data-lang="de">DE</button>
+                <button type="button" data-lang="en">EN</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-content">
+        <div class="hero-emoji">🔒</div>
+        <h1 lang="de">Datenschutz</h1>
+        <h1 lang="en">Privacy</h1>
+        <p lang="de">Wie wir mit deinen Daten umgehen — transparent und verständlich.</p>
+        <p lang="en">How we handle your data — transparent and clear.</p>
+    </div>
+</section>
+
+<div class="content">
+    <div class="container">
+
+        <!-- DEUTSCH -->
+        <section id="de" class="legal" lang="de">
+            <p class="meta-line"><strong>Stand:</strong> April 2026 · Verantwortlich: Mahir Tas</p>
+
+            <h2 class="first">1. Verantwortlicher</h2>
+            <p>Mahir Tas<br>E-Mail: <a href="mailto:mahir.tas.mt@gmail.com">mahir.tas.mt@gmail.com</a></p>
+
+            <h2>2. Welche Daten wir erheben</h2>
+            <ul>
+                <li><strong>Kamera &amp; Fotos:</strong> Die App kann auf deine Kamera und Fotobibliothek zugreifen, um Bilder deiner Zutaten zu erfassen. Diese Bilder werden lokal verarbeitet und nicht dauerhaft auf unseren Servern gespeichert.</li>
+                <li><strong>Standort:</strong> Optional, für regionale Rezeptvorschläge und wetterbasierte Empfehlungen. Wird nicht gespeichert.</li>
+                <li><strong>Zutatenlisten:</strong> Von dir eingegebene Zutaten werden an OpenAI-APIs übertragen, um Rezepte zu generieren.</li>
+                <li><strong>Push-Benachrichtigungen:</strong> Mit deiner Erlaubnis senden wir Push-Benachrichtigungen (z. B. Einkaufslisten-Erinnerungen).</li>
+                <li><strong>Kaufdaten:</strong> In-App-Käufe werden über Apple App Store / Google Play abgewickelt. Wir haben keinen Zugriff auf deine Zahlungsdaten.</li>
+                <li><strong>Anonyme Nutzungsdaten:</strong> Firebase erfasst anonymisierte Nutzungsstatistiken (z. B. Absturzberichte).</li>
+            </ul>
+
+            <h2>3. Kamera-Berechtigung</h2>
+            <p>Die App fordert Zugriff auf die Kamera, damit du Fotos deiner Lebensmittel aufnehmen kannst. Diese Berechtigung ist optional — die App funktioniert auch ohne Kamerazugriff. Fotos verlassen dein Gerät nur zur KI-Analyse und werden nicht dauerhaft gespeichert.</p>
+
+            <h2>4. Drittanbieter</h2>
+            <ul>
+                <li><strong>OpenAI</strong> — Rezeptgenerierung (<a href="https://openai.com/privacy" target="_blank" rel="noopener">openai.com/privacy</a>)</li>
+                <li><strong>Google Firebase</strong> — Authentifizierung, Datenbank, Analytics (<a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a>)</li>
+                <li><strong>RevenueCat</strong> — In-App-Käufe (<a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>)</li>
+                <li><strong>Google AdMob</strong> — Werbung (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>)</li>
+            </ul>
+
+            <h2>5. Datenspeicherung</h2>
+            <p>Deine Rezepte und Einkaufslisten werden in deinem persönlichen Firebase-Account gespeichert. Du kannst dein Konto und alle zugehörigen Daten jederzeit in der App löschen (Einstellungen → „Alle Daten löschen").</p>
+
+            <h2>6. Deine Rechte</h2>
+            <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten. Kontaktiere uns dafür unter der oben genannten E-Mail-Adresse.</p>
+
+            <h2>7. Kontakt</h2>
+            <p>Bei Fragen zum Datenschutz: <a href="mailto:mahir.tas.mt@gmail.com">mahir.tas.mt@gmail.com</a></p>
+        </section>
+
+        <!-- ENGLISH -->
+        <section id="en" class="legal" lang="en">
+            <p class="meta-line"><strong>Last updated:</strong> April 2026 · Controller: Mahir Tas</p>
+
+            <h2 class="first">1. Controller</h2>
+            <p>Mahir Tas<br>Email: <a href="mailto:mahir.tas.mt@gmail.com">mahir.tas.mt@gmail.com</a></p>
+
+            <h2>2. Data We Collect</h2>
+            <ul>
+                <li><strong>Camera &amp; Photos:</strong> The app may access your camera and photo library to capture images of your ingredients. Images are processed locally and not permanently stored on our servers.</li>
+                <li><strong>Location:</strong> Optional, used for regional recipe suggestions and weather-based recommendations. Not stored.</li>
+                <li><strong>Ingredient Lists:</strong> Ingredients you enter are sent to OpenAI APIs to generate recipes.</li>
+                <li><strong>Push Notifications:</strong> With your permission, we send push notifications (e.g. shopping list reminders).</li>
+                <li><strong>Purchase Data:</strong> In-app purchases are handled by Apple App Store / Google Play. We have no access to your payment details.</li>
+                <li><strong>Anonymous Usage Data:</strong> Firebase collects anonymized usage statistics (e.g. crash reports).</li>
+            </ul>
+
+            <h2>3. Camera Permission</h2>
+            <p>The app requests camera access so you can take photos of your food. This permission is optional — the app works without camera access. Photos only leave your device for AI analysis and are not stored permanently.</p>
+
+            <h2>4. Third-Party Services</h2>
+            <ul>
+                <li><strong>OpenAI</strong> — Recipe generation (<a href="https://openai.com/privacy" target="_blank" rel="noopener">openai.com/privacy</a>)</li>
+                <li><strong>Google Firebase</strong> — Auth, database, analytics (<a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a>)</li>
+                <li><strong>RevenueCat</strong> — In-app purchases (<a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>)</li>
+                <li><strong>Google AdMob</strong> — Advertising (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>)</li>
+            </ul>
+
+            <h2>5. Data Storage</h2>
+            <p>Your recipes and shopping lists are stored in your personal Firebase account. You can delete your account and all associated data at any time within the app (Settings → "Delete all data").</p>
+
+            <h2>6. Your Rights</h2>
+            <p>You have the right to access, correct, delete, and restrict processing of your data. Contact us at the email address above.</p>
+
+            <h2>7. Contact</h2>
+            <p>For privacy questions: <a href="mailto:mahir.tas.mt@gmail.com">mahir.tas.mt@gmail.com</a></p>
+        </section>
+
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="/" class="brand">
+                <span class="brand-icon">🍳</span>
+                <span>PantryFusion</span>
+            </a>
+            <p>Die smarte Rezept-App für alle, die mit Freude und ohne Verschwendung kochen wollen.</p>
+        </div>
+        <div>
+            <h4>App</h4>
+            <a href="https://apps.apple.com/app/pantryfusion/id6761635772">App Store</a>
+            <a href="/">Startseite</a>
+        </div>
+        <div>
+            <h4>Rechtliches</h4>
+            <a href="./">Datenschutz</a>
+            <a href="support.html">Support</a>
+            <a href="delete-data.html">Daten löschen</a>
+            <a href="mailto:mahir.tas.mt@gmail.com">Kontakt</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Mahir Tas · Made with 🍳 in Frankfurt am Main
+    </div>
+</footer>
+
+<script>
+(function() {
+    var KEY = 'pf-lang';
+    var DEFAULTS = { 'nav-home': { de: 'Startseite', en: 'Home' }, 'nav-support': { de: 'Support', en: 'Support' } };
+    var stored = (function(){ try { return localStorage.getItem(KEY); } catch(e) { return null; } })();
+    var browser = (navigator.language || 'en').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
+    setLang(stored || browser);
+    document.querySelectorAll('.lang-toggle button').forEach(function(btn) {
+        btn.addEventListener('click', function() { setLang(btn.dataset.lang); });
+    });
+    function setLang(lang) {
+        if (lang !== 'de' && lang !== 'en') lang = 'en';
+        try { localStorage.setItem(KEY, lang); } catch(e) {}
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[lang]').forEach(function(el) {
+            var l = el.getAttribute('lang');
+            if (l === 'de' || l === 'en') el.hidden = (l !== lang);
+        });
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+            var key = el.getAttribute('data-i18n');
+            if (DEFAULTS[key] && DEFAULTS[key][lang]) el.textContent = DEFAULTS[key][lang];
+        });
+        document.querySelectorAll('.lang-toggle button').forEach(function(btn) {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+    }
+})();
+</script>
+
+</body>
+</html>
